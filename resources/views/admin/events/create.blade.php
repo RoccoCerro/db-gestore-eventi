@@ -6,7 +6,7 @@
       <h1>Crea un evento</h1>
     </div>
     <div class="container">
-      <form action="{{ route('admin.events.store') }}" method="POST">
+      <form action="{{ route('admin.events.store') }}" method="POST" class="form-create-event">
 
         {{-- Cross Site Request Forgering --}}
         @csrf 
@@ -57,6 +57,8 @@
               <label for="end_of_sale" class="form-label">End of sale: </label>
               <input class="form-control" type="datetime-local" id="end_of_sale" name="end_of_sale" />
             </div>
+
+            <button class="btn btn-outline-dark">Crea</button>
 
           </div>
         </div>

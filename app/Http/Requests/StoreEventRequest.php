@@ -26,12 +26,12 @@ class StoreEventRequest extends FormRequest
             'description' => 'nullable|string',
             'start' => 'required|date|after:today',
             'duration' => 'nullable',
-            'image' => 'string',
-            'price' => 'decimal',
-            'total_tickets' => 'integer',
-            'end_of_sale' => 'required|date',
-            'location_id' => 'required',
-            'user_id'  => 'required'
+            'image' => 'nullable|string',
+            'price' => 'required',
+            'total_tickets' => 'nullable|integer',
+            'end_of_sale' => 'nullable|date|before_or_equal:start',
+            'location_id' => 'nullable',
+            'user_id'  => 'nullable'
         ];
     }
 }
