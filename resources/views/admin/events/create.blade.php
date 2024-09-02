@@ -1,0 +1,67 @@
+@extends('layouts.app')
+
+@section('content')
+  <section class="create-event">
+    <div class="container py-5">
+      <h1>Crea un evento</h1>
+    </div>
+    <div class="container">
+      <form action="{{ route('admin.events.store') }}" method="POST">
+
+        {{-- Cross Site Request Forgering --}}
+        @csrf 
+
+        <div class="row">
+          <div class="col">
+
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" name="name" class="form-control" id="name" placeholder="insert the name of the event..">
+            </div>
+
+            <div class="mb-3">
+              <label for="slug" class="form-label">Slug</label>
+              <input type="text" name="slug" class="form-control" id="slug" placeholder="insert the slug of the event..">
+            </div>
+
+            <div class="mb-3">
+              <label for="description" class="form-label">Description</label>
+              <textarea class="form-control" name="description" id="description" rows="3"></textarea>
+            </div>
+
+            <div class="mb-3">
+              <label for="start" class="form-label">Start date: </label>
+              <input class="form-control" type="datetime-local" id="start" name="start" />
+            </div>
+
+          </div>
+
+          <div class="col">
+
+            <div class="mb-3">
+              <label for="duration" class="form-label">Duration: </label>
+              <input id="duration" class="form-control" type="time" name="duration" step="1"/>
+            </div>
+
+            <div class="mb-3">
+              <label for="image" class="form-label">Image</label>
+              <input type="text" name="image" class="form-control" id="image" placeholder="insert the url of the image..">
+            </div>
+
+            <div class="mb-3">
+              <label for="price" class="form-label">Price</label>
+              <input type="number" step="0.01" name="price" class="form-control" id="price" placeholder="insert the price..">
+            </div>
+
+            <div class="mb-3">
+              <label for="end_of_sale" class="form-label">End of sale: </label>
+              <input class="form-control" type="datetime-local" id="end_of_sale" name="end_of_sale" />
+            </div>
+
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </section>
+@endsection
