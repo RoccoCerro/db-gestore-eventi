@@ -75,6 +75,18 @@
                             </div>
                         </div>
 
+                        <div class="mb-4">
+                            
+                            <select class="form-select w-50" aria-label="Default select example" name="role">
+                                <option selected>Role</option>
+                                <option value="1">Admin</option>
+                                <option value="2">Editor</option>
+                                <option value="3">Viewer</option>
+                                <option value="4">Public</option>
+                            </select>
+            
+                        </div>
+
                         <div class="mb-4 row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
@@ -82,6 +94,7 @@
                                 </button>
                             </div>
                         </div>
+
                     </form>
                 </div>
             </div>
