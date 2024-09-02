@@ -11,4 +11,9 @@ class EventController extends Controller
     {
         return view('admin.events.create');
     }
+
+    public function store()
+    {
+        
+    }
 }
