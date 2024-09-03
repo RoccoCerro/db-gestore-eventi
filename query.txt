@@ -92,6 +92,14 @@ JOIN (
 ) `events` ON `events`.`location_id` = `locations`.`id`
 ORDER BY eventi DESC;
 
-- Selezionare tutti gli utenti che si sono prenotati a più di 70 eventi
+- Selezionare tutti gli utenti che si sono prenotati a più di 70 eventi (74)
+SELECT users.first_name, users.last_name, Prenotazioni_totali
+FROM `users`
+JOIN(
+	SELECT bookings.user_id, COUNT(bookings.id) AS Prenotazioni_totali
+    FROM bookings
+    GROUP BY bookings.user_id
+) bookings ON bookings.user_id = users.id
+WHERE Prenotazioni_totali > 70;
 
 - Selezionare tutti gli eventi, mostrando il nome dell’evento, il nome della location, il numero di prenotazioni e il totale di biglietti ancora disponibili per l’evento (1040)
