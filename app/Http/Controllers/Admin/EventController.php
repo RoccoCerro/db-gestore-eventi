@@ -8,10 +8,18 @@ use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
-
+use Illuminate\Database\Query\IndexHint;
 
 class EventController extends Controller
 {
+
+    public function index()
+    {
+        $events = Event::all();
+
+        return view('admin.events.index', compact('events'));
+    }
+
     public function create()
     {
         return view('admin.events.create');
