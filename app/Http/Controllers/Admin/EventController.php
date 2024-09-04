@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreEventRequest;
+use App\Http\Requests\UpdateEventRequest;
 use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -68,5 +69,19 @@ class EventController extends Controller
 
         return to_route('admin.dashboard');
 
+    }
+
+    public function edit(Event $event)
+    {
+        return view('admin.events.edit', compact('event'));
+    }
+
+    public function update(UpdateEventRequest $request, Event $event)
+    {
+        $data_event = $request->validated();
+        $event->update($data_event);
+
+        // dd($request->all());
+        return to_route('admin.events.index');
     }
 }
