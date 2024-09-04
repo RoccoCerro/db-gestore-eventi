@@ -103,3 +103,11 @@ JOIN(
 WHERE Prenotazioni_totali > 70;
 
 - Selezionare tutti gli eventi, mostrando il nome dell’evento, il nome della location, il numero di prenotazioni e il totale di biglietti ancora disponibili per l’evento (1040)
+SELECT events.name, locations.name AS Nome_locale, Numero_prenotazioni, ( events.total_tickets - Numero_prenotazioni ) AS Biglietti_disponibili
+FROM `events`
+JOIN locations ON locations.id = events.location_id
+JOIN (
+	SELECT bookings.event_id, COUNT(bookings.id) AS Numero_prenotazioni
+    FROM bookings
+    GROUP BY bookings.event_id
+) bookings ON bookings.event_id = events.id;
