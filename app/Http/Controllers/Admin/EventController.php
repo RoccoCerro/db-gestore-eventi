@@ -67,7 +67,7 @@ class EventController extends Controller
 
         $new_event = Event::create($data_event);
 
-        return to_route('admin.dashboard');
+        return to_route('admin.events.show', $new_event);
 
     }
 
@@ -87,6 +87,13 @@ class EventController extends Controller
         $event->update($data_event);
 
         // dd($request->all());
+        return to_route('admin.events.show', $event);
+    }
+
+    public function destroy(Event $event)
+    {
+        $event->delete();
+
         return to_route('admin.events.index');
     }
 }

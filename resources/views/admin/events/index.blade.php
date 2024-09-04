@@ -13,6 +13,15 @@
             </div>
             <div class="card-btn">
               <a href="{{ route('admin.events.edit', $event) }}" class="btn btn-outline-dark">Modifica</a>
+            
+              <form class="project-destroy-form p-2" action="{{ route('admin.events.destroy', $event) }}" method="POST">
+          
+                @csrf
+                @method('DELETE')
+    
+                <button class="btn btn-danger link-danger text-white">Elimina</button>
+                
+              </form>
             </div>
           </div>
         </div>
