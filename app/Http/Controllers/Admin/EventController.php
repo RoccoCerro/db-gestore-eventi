@@ -58,7 +58,7 @@ class EventController extends Controller
 
         $new_event = Event::create($data_event);
 
-        // return dd($data_event);
+        return to_route('admin.dashboard');
 
     }
 }
