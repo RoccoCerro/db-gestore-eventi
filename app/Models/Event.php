@@ -22,4 +22,9 @@ class Event extends Model
         'location_id',
         'user_id'
     ];
+
+    public function location()
+    {
+        return $this->belongsTo(Location::class);
+    }
 }

@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->integer('event_id');
-            $table->integer('user_id');
+            $table->unsignedBigInteger('event_id');
+            $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade')->nullable();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->nullable();
             $table->dateTime('created_at');
             $table->timestamp('updated_at')->nullable();
         });

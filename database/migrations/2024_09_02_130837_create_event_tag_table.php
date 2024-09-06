@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('event_tag', function (Blueprint $table) {
             $table->id();
-            $table->integer('event_id');
-            $table->integer('tag_id');
+            $table->unsignedBigInteger('event_id');
+            $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade')->nullable();
+            $table->unsignedBigInteger('tag_id');
+            $table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade')->nullable();
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
         });

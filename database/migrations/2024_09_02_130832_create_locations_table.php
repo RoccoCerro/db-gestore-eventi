@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('locations', function (Blueprint $table) {
-            $table->id()->foreign('events.location_id');
+            $table->id();
             $table->string('name', 50);
             $table->string('slug', 155);
             $table->string('address');
